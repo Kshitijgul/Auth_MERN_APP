@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { handleError, handleSuccess } from '../utils';
 import { ToastContainer } from 'react-toastify';
+import {API} from "../config.js";
 
 function Home() {
     const [loggedInUser, setLoggedInUser] = useState('');
@@ -23,7 +24,7 @@ function Home() {
 
     const fetchProducts = async () => {
         try {
-            const url = "http://localhost:8080/products";
+            const url = `${API}/products`;
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
